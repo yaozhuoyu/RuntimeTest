@@ -19,6 +19,7 @@
 		5BB9339D18C05B0200B533EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338518C05B0200B533EA /* UIKit.framework */; };
 		5BB933A518C05B0200B533EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BB933A318C05B0200B533EA /* InfoPlist.strings */; };
 		5BB933A718C05B0200B533EA /* RuntimeTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB933A618C05B0200B533EA /* RuntimeTestTests.m */; };
+		5BB933B418C06CA400B533EA /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB933B318C06CA400B533EA /* Animal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,8 @@
 		5BB933A218C05B0200B533EA /* RuntimeTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RuntimeTestTests-Info.plist"; sourceTree = "<group>"; };
 		5BB933A418C05B0200B533EA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5BB933A618C05B0200B533EA /* RuntimeTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTestTests.m; sourceTree = "<group>"; };
+		5BB933B218C06CA400B533EA /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
+		5BB933B318C06CA400B533EA /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 		5BB9338718C05B0200B533EA /* RuntimeTest */ = {
 			isa = PBXGroup;
 			children = (
+				5BB933B118C06C9800B533EA /* Classes */,
 				5BB9339018C05B0200B533EA /* AppDelegate.h */,
 				5BB9339118C05B0200B533EA /* AppDelegate.m */,
 				5BB9339318C05B0200B533EA /* Images.xcassets */,
@@ -142,6 +146,15 @@
 				5BB933A318C05B0200B533EA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5BB933B118C06C9800B533EA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5BB933B218C06CA400B533EA /* Animal.h */,
+				5BB933B318C06CA400B533EA /* Animal.m */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BB933B418C06CA400B533EA /* Animal.m in Sources */,
 				5BB9339218C05B0200B533EA /* AppDelegate.m in Sources */,
 				5BB9338E18C05B0200B533EA /* main.m in Sources */,
 			);
