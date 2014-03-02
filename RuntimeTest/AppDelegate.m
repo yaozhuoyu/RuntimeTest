@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Cat.h"
 
 @implementation AppDelegate
 
@@ -15,7 +16,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    UIViewController *viewController = [[UIViewController alloc] init];
+    [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
+    [self testExample];
     return YES;
 }
 
@@ -44,6 +48,22 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - test
+- (void)testExample
+{
+    Cat *mCat = [[Cat alloc] init];
+    NSLog(@"mCat class %@, mCat class %@", [mCat class], [mCat superclass]);
+    //result :
+    /*
+      cat class Cat, super class Animal
+     */
+    
+    [mCat printClassInfo];
+    [mCat printClassLevelInfo];
+    [mCat printSuperClassLevelInfo];
+    [mCat printMetaSuperClassLevelInfo];
 }
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B9B923418C31C2A00CAB3E3 /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9B923318C31C2A00CAB3E3 /* Cat.m */; };
 		5BB9338218C05B0200B533EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338118C05B0200B533EA /* Foundation.framework */; };
 		5BB9338418C05B0200B533EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338318C05B0200B533EA /* CoreGraphics.framework */; };
 		5BB9338618C05B0200B533EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338518C05B0200B533EA /* UIKit.framework */; };
@@ -33,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B9B923218C31C2A00CAB3E3 /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
+		5B9B923318C31C2A00CAB3E3 /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
 		5BB9337E18C05B0200B533EA /* RuntimeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB9338118C05B0200B533EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BB9338318C05B0200B533EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -153,6 +156,8 @@
 			children = (
 				5BB933B218C06CA400B533EA /* Animal.h */,
 				5BB933B318C06CA400B533EA /* Animal.m */,
+				5B9B923218C31C2A00CAB3E3 /* Cat.h */,
+				5B9B923318C31C2A00CAB3E3 /* Cat.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B9B923418C31C2A00CAB3E3 /* Cat.m in Sources */,
 				5BB933B418C06CA400B533EA /* Animal.m in Sources */,
 				5BB9339218C05B0200B533EA /* AppDelegate.m in Sources */,
 				5BB9338E18C05B0200B533EA /* main.m in Sources */,
@@ -455,6 +461,7 @@
 				5BB933AC18C05B0200B533EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5BB933AD18C05B0200B533EA /* Build configuration list for PBXNativeTarget "RuntimeTestTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +470,7 @@
 				5BB933AF18C05B0200B533EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
