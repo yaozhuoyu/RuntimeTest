@@ -17,4 +17,7 @@
 - (void)printSuperClassLevelInfo;
 - (void)printMetaSuperClassLevelInfo;
 
+- (void)printMethodList;
+
+
 @end

@@ -94,4 +94,19 @@
      */
 }
 
+- (void)printMethodList
+{
+    unsigned int count;
+    Method *methods = class_copyMethodList([self class], &count);
+    NSLog(@"%@ class has %d mehod", [self class], count);
+    
+    for (int index = 0; index < count; index++) {
+        Method currentMethod = methods[index];
+        SEL methodSEL = method_getName(currentMethod);
+        NSLog(@"%d : %s",index, sel_getName(methodSEL));
+    }
+    
+    free(methods);
+}
+
 @end

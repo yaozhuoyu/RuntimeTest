@@ -54,20 +54,23 @@
 - (void)testExample
 {
     Cat *mCat = [[Cat alloc] init];
-    NSLog(@"mCat class %@, mCat class %@", [mCat class], [mCat superclass]);
-    //result :
-    /*
-      cat class Cat, super class Animal
-     */
-    
-    NSLog(@"Cat class %@, %p  mCat class %@, %p", [Cat class], [Cat class], [mCat class], [mCat class]);
+//    NSLog(@"mCat class %@, mCat class %@", [mCat class], [mCat superclass]);
+//    //result :
+//    /*
+//      cat class Cat, super class Animal
+//     */
+//    
+//    NSLog(@"Cat class %@, %p  mCat class %@, %p", [Cat class], [Cat class], [mCat class], [mCat class]);
     //Cat class Cat, 0x55748  mCat class Cat, 0x55748, 相同的
 
+//    [mCat printClassInfo];
+//    [mCat printClassLevelInfo];
+//    [mCat printSuperClassLevelInfo];
+//    [mCat printMetaSuperClassLevelInfo];
     
-    [mCat printClassInfo];
-    [mCat printClassLevelInfo];
-    [mCat printSuperClassLevelInfo];
-    [mCat printMetaSuperClassLevelInfo];
+    
+    //print method info
+    [mCat printMethodList];
 }
 
 @end
