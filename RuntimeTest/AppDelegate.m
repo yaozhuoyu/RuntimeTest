@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Cat.h"
+#import "SubObject.h"
 
 @implementation AppDelegate
 
@@ -19,7 +20,8 @@
     UIViewController *viewController = [[UIViewController alloc] init];
     [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
-    [self testExample];
+    //[self testExample];
+    [self testClassInherit];
     return YES;
 }
 
@@ -68,6 +70,16 @@
     [mCat printClassLevelInfo];
     [mCat printSuperClassLevelInfo];
     [mCat printMetaSuperClassLevelInfo];
+}
+
+- (void)testClassInherit
+{
+    BaseObject *baseObj = [[BaseObject alloc] init];
+    baseObj.oneString = @"one String";
+    SubObject *subObj = [[SubObject alloc] init];
+    subObj.twoString = @"two String";
+    
+    NSLog(@"%@ \n %@", baseObj, subObj);
 }
 
 @end

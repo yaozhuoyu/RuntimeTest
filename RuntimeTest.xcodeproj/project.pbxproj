@@ -21,6 +21,8 @@
 		5BB933A518C05B0200B533EA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5BB933A318C05B0200B533EA /* InfoPlist.strings */; };
 		5BB933A718C05B0200B533EA /* RuntimeTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB933A618C05B0200B533EA /* RuntimeTestTests.m */; };
 		5BB933B418C06CA400B533EA /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB933B318C06CA400B533EA /* Animal.m */; };
+		5BC3E1CF18D404D000FFC8E1 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3E1CE18D404D000FFC8E1 /* BaseObject.m */; };
+		5BC3E1D218D405BE00FFC8E1 /* SubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3E1D118D405BE00FFC8E1 /* SubObject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,10 @@
 		5BB933A618C05B0200B533EA /* RuntimeTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeTestTests.m; sourceTree = "<group>"; };
 		5BB933B218C06CA400B533EA /* Animal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animal.h; sourceTree = "<group>"; };
 		5BB933B318C06CA400B533EA /* Animal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Animal.m; sourceTree = "<group>"; };
+		5BC3E1CD18D404D000FFC8E1 /* BaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseObject.h; sourceTree = "<group>"; };
+		5BC3E1CE18D404D000FFC8E1 /* BaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObject.m; sourceTree = "<group>"; };
+		5BC3E1D018D405BE00FFC8E1 /* SubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubObject.h; sourceTree = "<group>"; };
+		5BC3E1D118D405BE00FFC8E1 /* SubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubObject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +164,10 @@
 				5BB933B318C06CA400B533EA /* Animal.m */,
 				5B9B923218C31C2A00CAB3E3 /* Cat.h */,
 				5B9B923318C31C2A00CAB3E3 /* Cat.m */,
+				5BC3E1CD18D404D000FFC8E1 /* BaseObject.h */,
+				5BC3E1CE18D404D000FFC8E1 /* BaseObject.m */,
+				5BC3E1D018D405BE00FFC8E1 /* SubObject.h */,
+				5BC3E1D118D405BE00FFC8E1 /* SubObject.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -258,7 +268,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9B923418C31C2A00CAB3E3 /* Cat.m in Sources */,
+				5BC3E1CF18D404D000FFC8E1 /* BaseObject.m in Sources */,
 				5BB933B418C06CA400B533EA /* Animal.m in Sources */,
+				5BC3E1D218D405BE00FFC8E1 /* SubObject.m in Sources */,
 				5BB9339218C05B0200B533EA /* AppDelegate.m in Sources */,
 				5BB9338E18C05B0200B533EA /* main.m in Sources */,
 			);
