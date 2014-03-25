@@ -94,8 +94,24 @@
      */
 }
 
+- (void)callEatFinishMethod
+{
+    //[self eatFish];
+}
+//
+//- (void)eatFish
+//{
+//    NSLog(@"cat eat fish at class");
+//}
+
 - (void)printMethodList
 {
+    /*
+     1.category的方法eatFish也会在此方法列表中
+     2.如果类的内部也有一个eatFish方法，则方法列表中会有两个eatFish
+     3.在写过category之后，所有的调用eatFish方法，都是调用category的实现
+     4.经过测试，在load方法和initialize方法中打印方法列表，和在之后打印的结果一样，可见在load的时候category已经加载进来。
+    */
     unsigned int count;
     Method *methods = class_copyMethodList([self class], &count);
     NSLog(@"%@ class has %d mehod", [self class], count);

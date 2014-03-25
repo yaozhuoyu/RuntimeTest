@@ -10,4 +10,21 @@
 
 @implementation Animal
 
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
+{
+    NSMethodSignature *methodSignature = [super methodSignatureForSelector:aSelector];
+    NSLog(@"**** methodSignatureForSelector %@", methodSignature);
+    return methodSignature;
+}
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    NSLog(@"forwardInvcation ---");
+}
+
+- (void)doesNotRecognizeSelector:(SEL)aSelector
+{
+    
+}
+
 @end

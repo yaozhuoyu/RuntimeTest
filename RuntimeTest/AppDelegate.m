@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Cat.h"
 #import "SubObject.h"
+#import "Cat+eat.h"
 
 @implementation AppDelegate
 
@@ -21,7 +22,8 @@
     [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
     //[self testExample];
-    [self testClassInherit];
+    [self testMethodFroward];
+    //[self testClassInherit];
     return YES;
 }
 
@@ -73,6 +75,8 @@
     
     //print method info
     [mCat printMethodList];
+    [mCat eatFish];
+    [mCat callEatFinishMethod];
 }
 
 - (void)testClassInherit
@@ -83,6 +87,26 @@
     subObj.twoString = @"two String";
     
     NSLog(@"%@ \n %@", baseObj, subObj);
+}
+
+- (void)testMethodFroward
+{
+    Cat *mCat = [[Cat alloc] init];
+    NSMethodSignature *callEatFinishSg = [mCat methodSignatureForSelector:@selector(callEatFinishMethod)];
+    NSLog(@"methodSignatureForSelector---- callEatFinishSg: %@", callEatFinishSg);
+    callEatFinishSg = [Cat instanceMethodSignatureForSelector:@selector(callEatFinishMethod)];
+    NSLog(@"instanceMethodSignatureForSelector---- callEatFinishSg: %@", callEatFinishSg);
+    
+    //上面两个结果一样的。
+    
+    
+    Animal *animal = [[Animal alloc] init];
+    mCat = (Cat *)animal;
+    [mCat callEatFinishMethod];
+    
+    /*
+     当methodSignatureForSelector返回一个nil的时候，是不会调用forwardInvocation的。methodSignatureForSelector的默认实现调用的super。
+     */
 }
 
 @end

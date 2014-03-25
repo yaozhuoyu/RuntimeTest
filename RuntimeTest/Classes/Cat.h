@@ -19,5 +19,7 @@
 
 - (void)printMethodList;
 
+- (void)callEatFinishMethod;
+
 
 @end
