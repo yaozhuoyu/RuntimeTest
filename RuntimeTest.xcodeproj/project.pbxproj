@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B3E63E018DD22430016628F /* Cat+eat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B3E63DF18DD22430016628F /* Cat+eat.m */; };
 		5B9B923418C31C2A00CAB3E3 /* Cat.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9B923318C31C2A00CAB3E3 /* Cat.m */; };
+		5BA42C8A18EA759000630B59 /* NSObject+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42C8918EA759000630B59 /* NSObject+Category.m */; };
+		5BA42C8D18EA85ED00630B59 /* Animal+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BA42C8C18EA85ED00630B59 /* Animal+Category.m */; };
 		5BB9338218C05B0200B533EA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338118C05B0200B533EA /* Foundation.framework */; };
 		5BB9338418C05B0200B533EA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338318C05B0200B533EA /* CoreGraphics.framework */; };
 		5BB9338618C05B0200B533EA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BB9338518C05B0200B533EA /* UIKit.framework */; };
@@ -41,6 +43,10 @@
 		5B3E63DF18DD22430016628F /* Cat+eat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Cat+eat.m"; sourceTree = "<group>"; };
 		5B9B923218C31C2A00CAB3E3 /* Cat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cat.h; sourceTree = "<group>"; };
 		5B9B923318C31C2A00CAB3E3 /* Cat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cat.m; sourceTree = "<group>"; };
+		5BA42C8818EA759000630B59 /* NSObject+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Category.h"; sourceTree = "<group>"; };
+		5BA42C8918EA759000630B59 /* NSObject+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Category.m"; sourceTree = "<group>"; };
+		5BA42C8B18EA85ED00630B59 /* Animal+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Animal+Category.h"; sourceTree = "<group>"; };
+		5BA42C8C18EA85ED00630B59 /* Animal+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Animal+Category.m"; sourceTree = "<group>"; };
 		5BB9337E18C05B0200B533EA /* RuntimeTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RuntimeTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB9338118C05B0200B533EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5BB9338318C05B0200B533EA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -173,6 +179,10 @@
 				5BC3E1D118D405BE00FFC8E1 /* SubObject.m */,
 				5B3E63DE18DD22430016628F /* Cat+eat.h */,
 				5B3E63DF18DD22430016628F /* Cat+eat.m */,
+				5BA42C8818EA759000630B59 /* NSObject+Category.h */,
+				5BA42C8918EA759000630B59 /* NSObject+Category.m */,
+				5BA42C8B18EA85ED00630B59 /* Animal+Category.h */,
+				5BA42C8C18EA85ED00630B59 /* Animal+Category.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -273,12 +283,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B9B923418C31C2A00CAB3E3 /* Cat.m in Sources */,
+				5BA42C8D18EA85ED00630B59 /* Animal+Category.m in Sources */,
 				5BC3E1CF18D404D000FFC8E1 /* BaseObject.m in Sources */,
 				5BB933B418C06CA400B533EA /* Animal.m in Sources */,
 				5BC3E1D218D405BE00FFC8E1 /* SubObject.m in Sources */,
 				5B3E63E018DD22430016628F /* Cat+eat.m in Sources */,
 				5BB9339218C05B0200B533EA /* AppDelegate.m in Sources */,
 				5BB9338E18C05B0200B533EA /* main.m in Sources */,
+				5BA42C8A18EA759000630B59 /* NSObject+Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "Cat.h"
 #import "SubObject.h"
 #import "Cat+eat.h"
+#import <objc/runtime.h>
 
 @implementation AppDelegate
 
@@ -22,8 +23,9 @@
     [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
     //[self testExample];
-    [self testMethodFroward];
+    //[self testMethodFroward];
     //[self testClassInherit];
+    [self runtimeFunctionTest];
     return YES;
 }
 
@@ -107,6 +109,35 @@
     /*
      当methodSignatureForSelector返回一个nil的时候，是不会调用forwardInvocation的。methodSignatureForSelector的默认实现调用的super。
      */
+}
+
+
+- (void)runtimeFunctionTest
+{
+    Animal *an = [[Animal alloc] init];
+    [an getClassListTest];
+    //当前runtime中class的数目 4371
+    
+    //获取animal的子类
+    NSArray *subArr = [an rt_subclasses];
+    NSLog(@"animal的子类有 ：%@", subArr);
+    //Cat
+    
+    [an addSubClass];
+    subArr = [an rt_subclasses];
+    NSLog(@"现在animal的子类有 ：%@", subArr);
+    //Cat,Bird
+    
+    [an testMetaClass];
+    
+    NSLog(@"sizeof(void *)  %lu, NSObject size : %lu, Animal size : %lu, Cat size : %lu", sizeof(void *), class_getInstanceSize([NSObject class]), class_getInstanceSize([Animal class]), class_getInstanceSize([Cat class]));
+    //sizeof(void *)  4, NSObject size : 4, Animal size : 16, Cat size : 20
+    
+    [an testMethod];
+    [an testAddMethod];
+    [an testSetMethod];
+    [an testProtocols];
+    
 }
 
 @end

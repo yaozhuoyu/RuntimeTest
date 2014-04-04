@@ -14,4 +14,19 @@
 @property (nonatomic, assign) NSUInteger anAge;
 @property (nonatomic, strong) NSArray *anArray;
 
+
+- (void)getClassListTest;
+- (NSArray *)rt_subclasses;
+
+- (void)addSubClass;
+
+- (void)testMetaClass;
+
+- (void)testMethod;
+
+- (void)testAddMethod;
+
+- (void)testSetMethod;
+
+- (void)testProtocols;
 @end
