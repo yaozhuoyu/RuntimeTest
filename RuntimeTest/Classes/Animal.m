@@ -14,7 +14,9 @@
 @protocol AnimalTestDelegate <NSObject>
 
 @optional
-- (void)animalTestDelegateMethod1;
+- (id)optionalAnimalTestDelegateMethod:(int)obj;
+@required
+- (void)requireAnimalTestDelegateMethod;
 
 @end
 
@@ -24,10 +26,24 @@
 @end
 
 @interface Animal()<AnimalTestDelegate>
+{
+    id  obj_;
+    CGRect rect;
+    CGFloat along;
+}
 
 @end
 
 @implementation Animal
+
+#pragma mark -
+#pragma mark - AnimalTestDelegate
+
+- (void)requireAnimalTestDelegateMethod
+{
+    NSLog(@"********requireAnimalTestDelegateMethod");
+}
+
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector
 {
@@ -109,7 +125,7 @@
     }
     
     //Destroys a class and its associated metaclass.
-    //objc_disposeClassPair(_addSubClass);
+    objc_disposeClassPair(_addSubClass);
 }
 
 - (void)testMetaClass
@@ -131,6 +147,7 @@
     NSMutableArray *array = [NSMutableArray array];
     for(unsigned i = 0; i < count; i++){
         Method mth = methods[i];
+        NSLog(@"testMethod %d, method name %@", i, NSStringFromSelector(method_getName(mth)));
         NSValue *value = [NSValue valueWithBytes:&mth objCType:@encode(Method)];
         [array addObject:value];
     }
@@ -208,6 +225,9 @@ static void addMethodImp(id self, SEL _cmd)
         Protocol *pc = protocols[index];
         NSLog(@"protocol name %s", protocol_getName(pc));
         
+        [self printProtocolMethod:pc];
+        
+        //获取协议满足的协议
         unsigned int pCount;
         //Returns an array of the protocols adopted by a protocol.
         Protocol *__unsafe_unretained *cps = protocol_copyProtocolList(pc, &pCount);
@@ -223,14 +243,169 @@ static void addMethodImp(id self, SEL _cmd)
     
 }
 
+- (void)printProtocolMethod:(Protocol *)pr
+{
+    BOOL isRequiredMethod = NO;
+    BOOL isInstanceMethod = YES;
+    unsigned int count;
+    struct objc_method_description *methods = protocol_copyMethodDescriptionList(pr, isRequiredMethod, isInstanceMethod, &count);
+    
+    for(unsigned i = 0; i < count; i++)
+    {
+        NSString *signature = [NSString stringWithCString: methods[i].types encoding: [NSString defaultCStringEncoding]];
+        NSLog(@"pr %s %i: methods description type: %@, sel: %@", protocol_getName(pr),i, signature, NSStringFromSelector(methods[i].name));
+        //pr AnimalTestDelegate 0: methods description type: @12@0:4i8, sel: optionalAnimalTestDelegateMethod:
+    }
+    
+    free(methods);
+}
 
 
+- (void)testIvars
+{
+    NSLog(@"/////////////////////////////////////////////////////////////////////");
+    unsigned int count;
+    Ivar *list = class_copyIvarList([self class], &count);
+    
+    for (unsigned i = 0; i < count; i++) {
+        Ivar ivar = list[i];
+        //ptrdiff_t是signed类型，用于存放同一数组中两个指针之间的差距
+        NSLog(@"ivar %d : name %s\t typeEncoding %s\t  offset %td \t",i, ivar_getName(ivar), ivar_getTypeEncoding(ivar), ivar_getOffset(ivar));
+    }
+    
+    free(list);
+    
+    /*
+     2014-04-05 10:30:24.786 RuntimeTest[11809:60b] ivar 0 : name obj_	 typeEncoding @	  offset 4
+     2014-04-05 10:30:24.787 RuntimeTest[11809:60b] ivar 1 : name rect	 typeEncoding {CGRect="origin"{CGPoint="x"f"y"f}"size"{CGSize="width"f"height"f}}	  offset 8
+     2014-04-05 10:30:24.789 RuntimeTest[11809:60b] ivar 2 : name along	 typeEncoding f	  offset 24
+     2014-04-05 10:30:24.790 RuntimeTest[11809:60b] ivar 3 : name _anName	 typeEncoding @"NSString"	  offset 28
+     2014-04-05 10:30:24.791 RuntimeTest[11809:60b] ivar 4 : name _anAge	 typeEncoding I	  offset 32
+     2014-04-05 10:30:24.792 RuntimeTest[11809:60b] ivar 5 : name _anArray	 typeEncoding @"NSArray"	  offset 36
+     */
+    
+    NSLog(@"@encode(id) %s, @encode(CGRect) %s,  @encode(Animal) %s ,@encode(NSString) %s", @encode(id), @encode(CGRect), @encode(Animal), @encode(NSString));
+    NSLog(@"@encode(NSString *) %@", [NSString stringWithUTF8String:@encode(NSString)]);
+    
+    /*
+     2014-04-05 10:37:03.572 RuntimeTest[11833:60b] @encode(id) @, @encode(CGRect) {CGRect={CGPoint=ff}{CGSize=ff}},  @encode(Animal) {Animal=#@{CGRect={CGPoint=ff}{CGSize=ff}}f@I@} ,@@encode(NSString) {NSString=#}
+     2014-04-05 10:37:03.573 RuntimeTest[11833:60b] @encode(NSString *) {NSString=#}
+    */
+    
+    
+    NSLog(@"******log NSObject ivar");
+    list = class_copyIvarList([NSObject class], &count);
+    
+    for (unsigned i = 0; i < count; i++) {
+        Ivar ivar = list[i];
+        //ptrdiff_t是signed类型，用于存放同一数组中两个指针之间的差距
+        NSLog(@"ivar %d : name %s\t typeEncoding %s\t  offset %td \t",i, ivar_getName(ivar), ivar_getTypeEncoding(ivar), ivar_getOffset(ivar));
+    }
+    
+    free(list);
+}
 
+- (void)testProperty
+{
+    NSLog(@"/////////////////////////////////////////////////////////////////////");
+    unsigned int count;
+    objc_property_t *list = class_copyPropertyList([self class], &count);
+    NSLog(@"current property num %d", count);
+    
+    for(unsigned i = 0; i < count; i++)
+    {
+        objc_property_t pro = list[i];
+        NSLog(@"property name %s \t attributes %s", property_getName(pro), property_getAttributes(pro));
+    }
+    
+    free(list);
+    
+    /*
+     2014-04-05 10:51:17.217 RuntimeTest[11859:60b] current property num 3
+     2014-04-05 10:51:17.218 RuntimeTest[11859:60b] property name anName 	 attributes T@"NSString",R,N,V_anName
+     2014-04-05 10:51:17.219 RuntimeTest[11859:60b] property name anAge 	 attributes TI,N,V_anAge
+     2014-04-05 10:51:17.220 RuntimeTest[11859:60b] property name anArray 	 attributes T@"NSArray",&,N,V_anArray
+     
+     其中对于attribute来说：
+     The string starts with a T followed by the @encode type and a comma, and finishes with a V followed by the name of the backing instance variable. Between these, the attributes are specified by the following descriptors, separated by commas
+     
+     R表示是read only，C表示copy，&表示retain，N表示nonatomic
+    */
+}
 
-
-
-
-
+- (void)testAddProperty
+{
+    //先添加变量
+    /*
+    NSString *ivarName = @"addIvar";
+    const char *typeStr = @encode(NSString);
+    
+    //This function may only be called after objc_allocateClassPair and before objc_registerClassPair. Adding an instance variable to an existing class is not supported.
+     
+    NSUInteger size, alignment;
+    NSGetSizeAndAlignment(typeStr, &size, &alignment);
+    class_addIvar([self class], [ivarName UTF8String], size, log2(alignment), typeStr);
+    */
+    
+    NSLog(@"//////////////////////////////////////////////");
+    const char *subClassName = "Bird";  //当subClassName的名字和Cat一样的时候，会创建失败，返回Nil
+    Class _addSubClass = objc_allocateClassPair([self class], subClassName, 0);
+    
+    if (_addSubClass) {
+        
+        //添加一个string变量
+        NSString *ivarName = @"stringIvar1";
+        const char *typeStr = @encode(NSString);
+        
+        
+        //The instance variable's minimum alignment in bytes is 1<<align. The minimum alignment of an instance variable depends on the ivar's type and the machine architecture. For variables of any pointer type, pass log2(sizeof(pointer_type)).
+        
+        
+        NSUInteger size, alignment;
+        NSGetSizeAndAlignment(typeStr, &size, &alignment);
+        
+        BOOL ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, log2(alignment), typeStr);
+        NSLog(@"%@  size %d, alignment %d add sucess %d  log2 %f", ivarName, size, alignment, ss, log2(4));
+        
+        //再添加一个变量char
+        ivarName = @"charIvar2";
+        typeStr = @encode(char);
+        NSGetSizeAndAlignment(typeStr, &size, &alignment);
+        ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, alignment, typeStr);
+        NSLog(@"%@  size %d, alignment %d add sucess %d", ivarName, size, alignment, ss);
+        
+        //添加一个string变量
+        ivarName = @"stringIvar2";
+        typeStr = @encode(NSString);
+        NSGetSizeAndAlignment(typeStr, &size, &alignment);
+        ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, log2(alignment), typeStr);
+        NSLog(@"%@  size %d, alignment %d add sucess %d", ivarName, size, alignment, ss);
+        
+        objc_registerClassPair(_addSubClass);
+        
+        id subClass = [[NSClassFromString([NSString stringWithCString:subClassName encoding:NSASCIIStringEncoding]) alloc] init];
+        NSLog(@"创建了一个子类，为 %@", subClass);
+        
+        NSLog(@"==== class_getInstanceSize %zu", class_getInstanceSize([subClass class]));
+        
+        unsigned int count;
+        Ivar *list = class_copyIvarList([subClass class], &count);
+        
+        for (unsigned i = 0; i < count; i++) {
+            Ivar ivar = list[i];
+            //ptrdiff_t是signed类型，用于存放同一数组中两个指针之间的差距
+            NSLog(@"ivar %d : name %s\t typeEncoding %s\t  offset %td \t",i, ivar_getName(ivar), ivar_getTypeEncoding(ivar), ivar_getOffset(ivar));
+        }
+        
+        free(list);
+    }
+    
+    
+    
+    
+    //Destroys a class and its associated metaclass.
+    objc_disposeClassPair(_addSubClass);
+}
 
 
 

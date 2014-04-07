@@ -123,7 +123,7 @@
     NSLog(@"animal的子类有 ：%@", subArr);
     //Cat
     
-    [an addSubClass];
+    //[an addSubClass];
     subArr = [an rt_subclasses];
     NSLog(@"现在animal的子类有 ：%@", subArr);
     //Cat,Bird
@@ -136,8 +136,15 @@
     [an testMethod];
     [an testAddMethod];
     [an testSetMethod];
-    [an testProtocols];
     
+    [an testProtocols];
+    [an testIvars];
+    [an testProperty];
+    
+    [an testAddProperty];
+    //
+    
+    NSLog(@"%p  %p", [an class], self);
 }
 
 @end

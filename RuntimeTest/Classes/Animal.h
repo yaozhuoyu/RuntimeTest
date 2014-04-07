@@ -10,7 +10,7 @@
 
 @interface Animal : NSObject
 
-@property (nonatomic, strong) NSString *anName;
+@property (nonatomic, strong, readonly) NSString *anName;
 @property (nonatomic, assign) NSUInteger anAge;
 @property (nonatomic, strong) NSArray *anArray;
 
@@ -29,4 +29,10 @@
 - (void)testSetMethod;
 
 - (void)testProtocols;
+
+- (void)testIvars;
+
+- (void)testProperty;
+
+- (void)testAddProperty;
 @end
