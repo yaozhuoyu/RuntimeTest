@@ -11,6 +11,7 @@
 #import "SubObject.h"
 #import "Cat+eat.h"
 #import <objc/runtime.h>
+#import "TestViewController.h"
 
 @implementation AppDelegate
 
@@ -19,13 +20,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    UIViewController *viewController = [[UIViewController alloc] init];
+    TestViewController *viewController = [[TestViewController alloc] init];
     [self.window setRootViewController:viewController];
     [self.window makeKeyAndVisible];
     //[self testExample];
     //[self testMethodFroward];
     //[self testClassInherit];
-    [self runtimeFunctionTest];
+    //[self runtimeFunctionTest];
     return YES;
 }
 

@@ -26,6 +26,7 @@
 		5BB933B418C06CA400B533EA /* Animal.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BB933B318C06CA400B533EA /* Animal.m */; };
 		5BC3E1CF18D404D000FFC8E1 /* BaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3E1CE18D404D000FFC8E1 /* BaseObject.m */; };
 		5BC3E1D218D405BE00FFC8E1 /* SubObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5BC3E1D118D405BE00FFC8E1 /* SubObject.m */; };
+		A38693AC1ADBD91300DF9479 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38693AB1ADBD91300DF9479 /* TestViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		5BC3E1CE18D404D000FFC8E1 /* BaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseObject.m; sourceTree = "<group>"; };
 		5BC3E1D018D405BE00FFC8E1 /* SubObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubObject.h; sourceTree = "<group>"; };
 		5BC3E1D118D405BE00FFC8E1 /* SubObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubObject.m; sourceTree = "<group>"; };
+		A38693AA1ADBD91300DF9479 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		A38693AB1ADBD91300DF9479 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +186,8 @@
 				5BA42C8918EA759000630B59 /* NSObject+Category.m */,
 				5BA42C8B18EA85ED00630B59 /* Animal+Category.h */,
 				5BA42C8C18EA85ED00630B59 /* Animal+Category.m */,
+				A38693AA1ADBD91300DF9479 /* TestViewController.h */,
+				A38693AB1ADBD91300DF9479 /* TestViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				5BA42C8D18EA85ED00630B59 /* Animal+Category.m in Sources */,
 				5BC3E1CF18D404D000FFC8E1 /* BaseObject.m in Sources */,
 				5BB933B418C06CA400B533EA /* Animal.m in Sources */,
+				A38693AC1ADBD91300DF9479 /* TestViewController.m in Sources */,
 				5BC3E1D218D405BE00FFC8E1 /* SubObject.m in Sources */,
 				5B3E63E018DD22430016628F /* Cat+eat.m in Sources */,
 				5BB9339218C05B0200B533EA /* AppDelegate.m in Sources */,

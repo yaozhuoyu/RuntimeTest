@@ -365,21 +365,21 @@ static void addMethodImp(id self, SEL _cmd)
         NSGetSizeAndAlignment(typeStr, &size, &alignment);
         
         BOOL ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, log2(alignment), typeStr);
-        NSLog(@"%@  size %d, alignment %d add sucess %d  log2 %f", ivarName, size, alignment, ss, log2(4));
+        NSLog(@"%@  size %ld, alignment %ld add sucess %d  log2 %f", ivarName, size, alignment, ss, log2(4));
         
         //再添加一个变量char
         ivarName = @"charIvar2";
         typeStr = @encode(char);
         NSGetSizeAndAlignment(typeStr, &size, &alignment);
         ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, alignment, typeStr);
-        NSLog(@"%@  size %d, alignment %d add sucess %d", ivarName, size, alignment, ss);
+        NSLog(@"%@  size %ld, alignment %ld add sucess %d", ivarName, size, alignment, ss);
         
         //添加一个string变量
         ivarName = @"stringIvar2";
         typeStr = @encode(NSString);
         NSGetSizeAndAlignment(typeStr, &size, &alignment);
         ss = class_addIvar(_addSubClass, [ivarName UTF8String], size, log2(alignment), typeStr);
-        NSLog(@"%@  size %d, alignment %d add sucess %d", ivarName, size, alignment, ss);
+        NSLog(@"%@  size %ld, alignment %ld add sucess %d", ivarName, size, alignment, ss);
         
         objc_registerClassPair(_addSubClass);
         
@@ -394,7 +394,7 @@ static void addMethodImp(id self, SEL _cmd)
         for (unsigned i = 0; i < count; i++) {
             Ivar ivar = list[i];
             //ptrdiff_t是signed类型，用于存放同一数组中两个指针之间的差距
-            NSLog(@"ivar %d : name %s\t typeEncoding %s\t  offset %td \t",i, ivar_getName(ivar), ivar_getTypeEncoding(ivar), ivar_getOffset(ivar));
+            NSLog(@"ivar %u : name %s\t typeEncoding %s\t  offset %td \t",i, ivar_getName(ivar), ivar_getTypeEncoding(ivar), ivar_getOffset(ivar));
         }
         
         free(list);
